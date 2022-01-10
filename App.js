@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Button, FlatList } from 'react-native';
 
 export default function App() {
   const [enteredName, setEnteredName] = useState('');
@@ -9,7 +9,7 @@ export default function App() {
     setEnteredName(enteredText)
   };
   const addNameHandler = () => {
-    setListedNames(currentNames => [...currentNames, enteredName]);
+    setListedNames(currentNames => [...currentNames, { key: Math.random().toString(), value: enteredName }]);
   };
   return (
     <View style={styles.screen}>
@@ -22,9 +22,14 @@ export default function App() {
         />
         <Button title="Add" onPress={addNameHandler} />
       </View>
-      <View>
-        {listedNames.map((name) => <View key={name} style={styles.listItem}><Text>{name}</Text></View>)}
-      </View>
+      <FlatList
+        data={listedNames}
+        renderItem={itemData => (
+          <View style={styles.listItem}>
+            <Text>{itemData.item.value}</Text>
+          </View>
+        )}
+      />
     </View>
   );
 }
@@ -50,5 +55,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'lightgrey',
     borderColor: 'black',
     borderWidth: 1
+  },
+  list: {
+    marginBottom: 10
   }
 });
