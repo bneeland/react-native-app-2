@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TextInput, Button, FlatList } from 'react-native';
+import { StyleSheet, View, Button, FlatList } from 'react-native';
 
 import NameItem from './components/NameItem';
 import NameInput from './components/NameInput';
 
 export default function App() {
   const [listedNames, setListedNames] = useState([]);
+  const [isAddMode, setIsAddMode] = useState(false);
 
   const addNameHandler = nameTitle => {
     setListedNames(currentNames => [
@@ -22,7 +23,8 @@ export default function App() {
 
   return (
     <View style={styles.screen}>
-      <NameInput onAddName={addNameHandler} />
+    <Button title="Add name" onPress={() => setIsAddMode(true)} />
+      <NameInput visible={isAddMode} onAddName={addNameHandler} />
       <FlatList
         keyExtractor={(item, index) => item.id}
         data={listedNames}
