@@ -23,8 +23,12 @@ const NameInput = props => {
           value={enteredName}
         />
         <View style={styles.buttonContainer}>
-          <Button title="Cancel" color="red" onPress={props.onCancel}/>
-          <Button title="Add" onPress={addNameHandler} />
+          <View style={styles.button}>
+            <Button title="Cancel" color="red" onPress={props.onCancel}/>
+          </View>
+          <View style={styles.button}>
+            <Button title="Add" onPress={addNameHandler} />
+          </View>
         </View>
       </View>
     </Modal>
@@ -48,6 +52,9 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     width: '80%',
   },
+  button: {
+    marginBottom: 10,
+  }
 });
 
 export default NameInput;
