@@ -45,3 +45,6 @@ const styles = StyleSheet.create({
     padding: 50
   },
 });
+
+// https://www.youtube.com/watch?v=qSRrxpdMpVc
+// 2:52
