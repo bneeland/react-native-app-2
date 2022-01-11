@@ -22,8 +22,10 @@ const NameInput = props => {
           onChangeText={nameInputHandler}
           value={enteredName}
         />
-        <Button title="Cancel" color="red" />
-        <Button title="Add" onPress={addNameHandler} />
+        <View style={styles.buttonContainer}>
+          <Button title="Cancel" color="red" onPress={props.onCancel}/>
+          <Button title="Add" onPress={addNameHandler} />
+        </View>
       </View>
     </Modal>
   )
@@ -33,14 +35,18 @@ const styles = StyleSheet.create({
   inputContainer: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   input: {
     width: '80%',
     borderColor: 'black',
     borderWidth: 1,
     padding: 10,
-    marginBottom: 10
+    marginBottom: 10,
+  },
+  buttonContainer: {
+    flexDirection: 'column',
+    width: '80%',
   },
 });
 

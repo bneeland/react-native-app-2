@@ -22,10 +22,18 @@ export default function App() {
     });
   }
 
+  const cancelNameAdditionHandler = () => {
+    setIsAddMode(false);
+  }
+
   return (
     <View style={styles.screen}>
     <Button title="Add name" onPress={() => setIsAddMode(true)} />
-      <NameInput visible={isAddMode} onAddName={addNameHandler} />
+      <NameInput
+        visible={isAddMode}
+        onAddName={addNameHandler}
+        onCancel={cancelNameAdditionHandler}
+      />
       <FlatList
         keyExtractor={(item, index) => item.id}
         data={listedNames}
