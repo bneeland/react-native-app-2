@@ -8,6 +8,11 @@ const NameInput = props => {
     setEnteredName(enteredText)
   };
 
+  const addNameHandler = () => {
+    props.onAddName(enteredName);
+    setEnteredName('');
+  };
+
   return (
     <Modal visible={props.visible} animationType="slide">
       <View style={styles.inputContainer}>
@@ -17,7 +22,8 @@ const NameInput = props => {
           onChangeText={nameInputHandler}
           value={enteredName}
         />
-        <Button title="Add" onPress={props.onAddName.bind(this, enteredName)} />
+        <Button title="Cancel" color="red" />
+        <Button title="Add" onPress={addNameHandler} />
       </View>
     </Modal>
   )

@@ -13,6 +13,7 @@ export default function App() {
       ...currentNames,
       { id: Math.random().toString(), value: nameTitle }
     ]);
+    setIsAddMode(false);
   };
 
   const removeNameHandler = nameId => {
@@ -47,4 +48,4 @@ const styles = StyleSheet.create({
 });
 
 // https://www.youtube.com/watch?v=qSRrxpdMpVc
-// 2:52
+// 2:56
