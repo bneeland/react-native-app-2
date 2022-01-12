@@ -24,10 +24,10 @@ const NameInput = props => {
         />
         <View style={styles.buttonContainer}>
           <View style={styles.button}>
-            <Button title="Cancel" color="grey" onPress={props.onCancel}/>
+            <Button title="Add" onPress={addNameHandler} />
           </View>
           <View style={styles.button}>
-            <Button title="Add" onPress={addNameHandler} />
+            <Button title="Cancel" color="grey" onPress={props.onCancel}/>
           </View>
         </View>
       </View>
