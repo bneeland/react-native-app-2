@@ -24,7 +24,7 @@ const NameInput = props => {
         />
         <View style={styles.buttonContainer}>
           <View style={styles.button}>
-            <Button title="Cancel" color="red" onPress={props.onCancel}/>
+            <Button title="Cancel" color="grey" onPress={props.onCancel}/>
           </View>
           <View style={styles.button}>
             <Button title="Add" onPress={addNameHandler} />
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
   },
   input: {
     width: '80%',
-    borderColor: 'black',
+    borderColor: 'lightgrey',
     borderWidth: 1,
     padding: 10,
     marginBottom: 10,
